@@ -18,34 +18,42 @@
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Header
+                    Header prueba
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
                     Footer
                 </p:layoutUnit>
 
-                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                <p:layoutUnit position="west" size="175" header="Menu" collapsible="true">
                     <p:menu>
                         <p:submenu label="Resources">
-                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Ingreso estudiante" url="estudiante.xhtml" />
                             <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
                             <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
                             <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
-
                         </p:submenu>
-
                     </p:menu>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                    Welcome to PrimeFaces
+                    <ui:insert name="content"></ui:insert>
                 </p:layoutUnit>
 
+                <h:form>
+                    <p:dock position="bottom">
+                        <p:menuitem value="Home" icon="/resources/demo/images/dock/home.png"/>
+                        <p:menuitem value="Music" icon="/resources/demo/images/dock/music.png"/>
+                        <p:menuitem value="Video" icon="/resources/demo/images/dock/video.png"/>
+                        <p:menuitem value="Email" icon="/resources/demo/images/dock/email.png"/>
+                        <p:menuitem value="Portfolio" icon="/resources/demo/images/dock/portfolio.png"/>
+                        <p:menuitem value="Link" icon="/resources/demo/images/dock/link.png"/>
+                        <p:menuitem value="RSS" icon="/resources/demo/images/dock/rss.png"/>
+                        <p:menuitem value="History" icon="/resources/demo/images/dock/history.png"/>
+                    </p:dock>
+                </h:form>
             </p:layout>
-
         </h:body>
-
     </f:view>
 </html>
 

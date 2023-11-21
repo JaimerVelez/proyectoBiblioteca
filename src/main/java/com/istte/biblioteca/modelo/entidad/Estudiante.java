@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.istte.biblioteca.modelo.entidad;
 
 import java.io.Serializable;
@@ -13,56 +9,56 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- *
- * @author jaime
- */
 @Entity
-@Table(name = "Estudiantes")
-public class Estudiantes implements Serializable {
-
+@Table(name = "Estudiante")
+public class Estudiante implements Serializable {
     @Id
-
-    private int cedula;
+    private int cedulaEstudiante;
+    
     @Column(name = "estudiante_nombre")
     private String nombreEstudiante;
-    @Column(name = "estudiante_apellido")
-    private String apellidoEstudiante;
+    @Column(name = "estudiante_apellidos")
+    private String apellidosEstudiante;
     @Column(name = "estudiante_correo")
     private String correoEstudiante;
     @Column(name = "estudiante_telefono")
     private String telefonoEstudiante;
-    @Column(name = "estudiante_estado")
-    private String direccionEstudiante;
     @Column(name = "estudiante_direccion")
+    private String direccionEstudiante;
+    @Column(name = "estudiante_estado")
     private int estadoEstudiante;
     @Column(name = "estudiante_es")
     private int esEstudiante;
-    //Un estudiante Varios prestamos
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkEstudianteID")
-    private List<Prestamos> fkPrestamoId;
+    
+    //Un estudiante -> varios préstamos
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkEstudianteId")
+    private List<Prestamo> fkPrestamoEstudianteId;
 
-    public Estudiantes() {
+    public Estudiante() {
     }
 
-    public Estudiantes(int cedula, String nombreEstudiante, String apellidoEstudiante, String correoEstudiante, String telefonoEstudiante, String direccionEstudiante, int estadoEstudiante, int esEstudiante, List<Prestamos> fkPrestamoId) {
-        this.cedula = cedula;
+    public Estudiante(int cedulaEstudiante, String nombreEstudiante,
+            String apellidosEstudiante, String correoEstudiante,
+            String telefonoEstudiante, String direccionEstudiante,
+            int estadoEstudiante, int esEstudiante,
+            List<Prestamo> fkPrestamoEstudianteId) {
+        this.cedulaEstudiante = cedulaEstudiante;
         this.nombreEstudiante = nombreEstudiante;
-        this.apellidoEstudiante = apellidoEstudiante;
+        this.apellidosEstudiante = apellidosEstudiante;
         this.correoEstudiante = correoEstudiante;
         this.telefonoEstudiante = telefonoEstudiante;
         this.direccionEstudiante = direccionEstudiante;
         this.estadoEstudiante = estadoEstudiante;
         this.esEstudiante = esEstudiante;
-        this.fkPrestamoId = fkPrestamoId;
+        this.fkPrestamoEstudianteId = fkPrestamoEstudianteId;
     }
 
-    public int getCedula() {
-        return cedula;
+    public int getCedulaEstudiante() {
+        return cedulaEstudiante;
     }
 
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
+    public void setCedulaEstudiante(int cedulaEstudiante) {
+        this.cedulaEstudiante = cedulaEstudiante;
     }
 
     public String getNombreEstudiante() {
@@ -73,12 +69,12 @@ public class Estudiantes implements Serializable {
         this.nombreEstudiante = nombreEstudiante;
     }
 
-    public String getApellidoEstudiante() {
-        return apellidoEstudiante;
+    public String getApellidosEstudiante() {
+        return apellidosEstudiante;
     }
 
-    public void setApellidoEstudiante(String apellidoEstudiante) {
-        this.apellidoEstudiante = apellidoEstudiante;
+    public void setApellidosEstudiante(String apellidosEstudiante) {
+        this.apellidosEstudiante = apellidosEstudiante;
     }
 
     public String getCorreoEstudiante() {
@@ -121,17 +117,17 @@ public class Estudiantes implements Serializable {
         this.esEstudiante = esEstudiante;
     }
 
-    public List<Prestamos> getFkPrestamoId() {
-        return fkPrestamoId;
+    public List<Prestamo> getFkPrestamoEstudianteId() {
+        return fkPrestamoEstudianteId;
     }
 
-    public void setFkPrestamoId(List<Prestamos> fkPrestamoId) {
-        this.fkPrestamoId = fkPrestamoId;
+    public void setFkPrestamoEstudianteId(List<Prestamo> fkPrestamoEstudianteId) {
+        this.fkPrestamoEstudianteId = fkPrestamoEstudianteId;
     }
 
     @Override
     public String toString() {
-        return "Estudiantes{" + "cedula=" + cedula + ", nombreEstudiante=" + nombreEstudiante + ", apellidoEstudiante=" + apellidoEstudiante + ", correoEstudiante=" + correoEstudiante + ", telefonoEstudiante=" + telefonoEstudiante + ", direccionEstudiante=" + direccionEstudiante + ", estadoEstudiante=" + estadoEstudiante + ", esEstudiante=" + esEstudiante + ", fkPrestamoId=" + fkPrestamoId + '}';
+        return "Estudiante{" + "cedulaEstudiante=" + cedulaEstudiante + ", nombreEstudiante=" + nombreEstudiante + ", apellidosEstudiante=" + apellidosEstudiante + ", correoEstudiante=" + correoEstudiante + ", telefonoEstudiante=" + telefonoEstudiante + ", direccionEstudiante=" + direccionEstudiante + ", estadoEstudiante=" + estadoEstudiante + ", esEstudiante=" + esEstudiante + ", fkPrestamoEstudianteId=" + fkPrestamoEstudianteId + '}';
     }
-
+    
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:p="http://primefaces.org/ui"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Ingreso Estudiante</title>
+        
+    </h:head>
+    <h:body>
+        <ui:composition template="welcomePrimefaces.xhtml">
+            <ui:define name="windowsTitle">#{msgs.planetariumTitle}</ui:define>
+            <ui:define name="content">
+                <h:form id="frmEstudiante">
+                    <p:panel id="pIngreso" header="ingresoEstudiante" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panelInput" style="margin-bottom:20px">
+                        <p:panelGrid columns="2">
+                            <p:outputLabel id="olCedula" value="cédula"></p:outputLabel>
+                            <p:inputText id="itCedula" value="#{estudiantecore.cedulaEstudiante}"></p:inputText>
+
+                            <p:outputLabel id="olNombres" value="nombres"></p:outputLabel>
+                            <p:inputText id="itNombres" value="#{estudiantecore.nombreEstudiante}"></p:inputText>
+
+                            <p:outputLabel id="olApellidos" value="apellidos"></p:outputLabel>
+                            <p:inputText id="itApellidos" value="#{estudiantecore.apellidoEstudiante}"></p:inputText>
+
+                            <p:outputLabel id="olCorreo" value="correo"></p:outputLabel>
+                            <p:inputText id="itCorreo" value="#{estudiantecore.correoEstudiante}"></p:inputText>
+
+                            <p:outputLabel id="olTelefono" value="teléfono"></p:outputLabel>
+                            <p:inputText id="itTelefono" value="#{estudiantecore.telefonoEstudiante}"></p:inputText>
+
+                            <p:outputLabel id="olDireccion" value="dirección"></p:outputLabel>
+                            <p:inputText id="itDireccion" value="#{estudiantecore.direccionEstudiante}"></p:inputText>
+                        </p:panelGrid>
+
+                        <p:commandButton id="cbGuardar" icon="fa fa-save" value="Guardar" action="#{estudiantecore.insertarEstudiante()}"></p:commandButton>
+                        <p:commandButton id="cbActualizar" value="Actualizar"></p:commandButton>
+                        <p:commandButton id="cbLimpiar" value="Limpiar"></p:commandButton>
+
+                    </p:panel>
+                    <p:panel id="pDespliegue" header="ver información" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panelVerDatos" style="margin-bottom:20px">
+                        <p:dataTable>
+                            <p:column headerText="Cédula"></p:column>
+                            <p:column headerText="Nombres"></p:column>
+                            <p:column headerText="Apellidos"></p:column>
+                            <p:column headerText="Correo"></p:column>
+                            <p:column headerText="Teléfono"></p:column>
+                            <p:column headerText="Dirección"></p:column>
+                            <p:column headerText="¿Estudiante?"></p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+        
+        
+        
+        
+        <!--//private int cedulaEstudiante;
+    @Column(name = "estudiante_nombre")
+    private String nombreEstudiante;
+    @Column(name = "estudiante_apellido")
+    private String apellidoEstudiante;
+    @Column(name = "estudiante_coerreo")
+    private String correoEstudiante;
+    @Column(name = "estudiante_telefono")
+    private String telefonoEstudiante;
+    @Column(name = "estudiante_direccion")
+    private String direccionEstudiante;
+    @Column(name = "estudiante_estado")
+    private int estadoEstudiante;
+    @Column(name = "estudiante_es")
+    private int esEstudiante; -->
+        
+        
+        
+        
+    </h:body>
+</html>

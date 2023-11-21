@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.istte.biblioteca.modelo.entidad;
 
 import java.io.Serializable;
@@ -17,46 +13,42 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/**
- *
- * @author jaime
- */
 @Entity
-@Table(name = "Prestamos")
-public class Prestamos implements Serializable {
-
+@Table(name = "Préstamo")
+public class Prestamo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private int idPrestamo;
-    @Column(name = "prestamo_fechaInicio")
+    @Column(name = "prestamo_fecha")
     private Date fechaPrestamo;
-    @Column(name = "prestamos_devolucion")
-    private Date fechaDevolución;
+    @Column(name = "prestamo_fechaDevolver")
+    private Date fechaDevolucionPrestamo;
     @Column(name = "prestamo_estudiante_id")
     private int estudianteId;
     @Column(name = "prestamo_libro_id")
     private int libroId;
-    //Varios prestamos un estudiante
+    
+    //Varios préstamos -> un estudiante
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "fkEstudianteID")
-    private Estudiantes fkEstudianteID;
-    //varios Prestamos un libro
+    @JoinColumn(name = "fkEstudianteId")
+    private Estudiante fkEstudianteId;
+    
+    //Varios préstamos -> un libro
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "fkLibrosID")
-    private Libros fkLibrosID;
+    @JoinColumn(name = "fkLibroId")
+    private Libro fkLibroId;
 
-    public Prestamos() {
+    public Prestamo() {
     }
 
-    public Prestamos(int idPrestamo, Date fechaPrestamo, Date fechaDevolución, int estudianteId, int libroId, Estudiantes fkEstudianteID, Libros fkLibrosID) {
+    public Prestamo(int idPrestamo, Date fechaPrestamo, Date fechaDevolucionPrestamo, int estudianteId, int libroId, Estudiante fkEstudianteId, Libro fkLibroId) {
         this.idPrestamo = idPrestamo;
         this.fechaPrestamo = fechaPrestamo;
-        this.fechaDevolución = fechaDevolución;
+        this.fechaDevolucionPrestamo = fechaDevolucionPrestamo;
         this.estudianteId = estudianteId;
         this.libroId = libroId;
-        this.fkEstudianteID = fkEstudianteID;
-        this.fkLibrosID = fkLibrosID;
+        this.fkEstudianteId = fkEstudianteId;
+        this.fkLibroId = fkLibroId;
     }
 
     public int getIdPrestamo() {
@@ -75,12 +67,12 @@ public class Prestamos implements Serializable {
         this.fechaPrestamo = fechaPrestamo;
     }
 
-    public Date getFechaDevolución() {
-        return fechaDevolución;
+    public Date getFechaDevolucionPrestamo() {
+        return fechaDevolucionPrestamo;
     }
 
-    public void setFechaDevolución(Date fechaDevolución) {
-        this.fechaDevolución = fechaDevolución;
+    public void setFechaDevolucionPrestamo(Date fechaDevolucionPrestamo) {
+        this.fechaDevolucionPrestamo = fechaDevolucionPrestamo;
     }
 
     public int getEstudianteId() {
@@ -99,25 +91,25 @@ public class Prestamos implements Serializable {
         this.libroId = libroId;
     }
 
-    public Estudiantes getFkEstudianteID() {
-        return fkEstudianteID;
+    public Estudiante getFkEstudianteId() {
+        return fkEstudianteId;
     }
 
-    public void setFkEstudianteID(Estudiantes fkEstudianteID) {
-        this.fkEstudianteID = fkEstudianteID;
+    public void setFkEstudianteId(Estudiante fkEstudianteId) {
+        this.fkEstudianteId = fkEstudianteId;
     }
 
-    public Libros getFkLibrosID() {
-        return fkLibrosID;
+    public Libro getFkLibroId() {
+        return fkLibroId;
     }
 
-    public void setFkLibrosID(Libros fkLibrosID) {
-        this.fkLibrosID = fkLibrosID;
+    public void setFkLibroId(Libro fkLibroId) {
+        this.fkLibroId = fkLibroId;
     }
 
     @Override
     public String toString() {
-        return "Prestamos{" + "idPrestamo=" + idPrestamo + ", fechaPrestamo=" + fechaPrestamo + ", fechaDevoluci\u00f3n=" + fechaDevolución + ", estudianteId=" + estudianteId + ", libroId=" + libroId + ", fkEstudianteID=" + fkEstudianteID + ", fkLibrosID=" + fkLibrosID + '}';
+        return "Prestamo{" + "idPrestamo=" + idPrestamo + ", fechaPrestamo=" + fechaPrestamo + ", fechaDevolucionPrestamo=" + fechaDevolucionPrestamo + ", estudianteId=" + estudianteId + ", libroId=" + libroId + ", fkEstudianteId=" + fkEstudianteId + ", fkLibroId=" + fkLibroId + '}';
     }
 
 }

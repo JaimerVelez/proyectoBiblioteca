@@ -1,35 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.istte.biblioteca.modelo.entidad;
 
-/**
- *
- * @author jaime
- */
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "Libros")
-public class Libros implements Serializable {
-
+@Table(name = "Libro")
+public class Libro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    // (strategy = GemerationType.Auto)
-    private int idLibros;
-    @Column(name = "isbn")
+    private int idLibro;
+    @Column(name = "libro_isbn")
     private String isbnLibro;
-    @Column(name = "libro_categoría")
+    @Column(name = "libro_categoria")
     private String categoriaLibro;
     @Column(name = "libro_titulo")
     private String tituloLibro;
@@ -47,16 +37,16 @@ public class Libros implements Serializable {
     private String estadoLibro;
     @Column(name = "libro_responsable")
     private String responsableLibro;
+    
+    //Un estudiante -> varios préstamos
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkLibroId")
+    private List<Prestamo> fkPrestamoLibroId;
 
-    //un libro varios prestamos
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkLibrosID")
-    private List<Prestamos> fkPrestamosLibroId;
-
-    public Libros() {
+    public Libro() {
     }
 
-    public Libros(int idLibros, String isbnLibro, String categoriaLibro, String tituloLibro, String autorLibro, String editorialLibro, String temaLibro, String cantidadLibro, String perchaLibro, String estadoLibro, String responsableLibro, List<Prestamos> fkPrestamosLibroId) {
-        this.idLibros = idLibros;
+    public Libro(int idLibro, String isbnLibro, String categoriaLibro, String tituloLibro, String autorLibro, String editorialLibro, String temaLibro, String cantidadLibro, String perchaLibro, String estadoLibro, String responsableLibro, List<Prestamo> fkPrestamoLibroId) {
+        this.idLibro = idLibro;
         this.isbnLibro = isbnLibro;
         this.categoriaLibro = categoriaLibro;
         this.tituloLibro = tituloLibro;
@@ -67,15 +57,15 @@ public class Libros implements Serializable {
         this.perchaLibro = perchaLibro;
         this.estadoLibro = estadoLibro;
         this.responsableLibro = responsableLibro;
-        this.fkPrestamosLibroId = fkPrestamosLibroId;
+        this.fkPrestamoLibroId = fkPrestamoLibroId;
     }
 
-    public int getIdLibros() {
-        return idLibros;
+    public int getIdLibro() {
+        return idLibro;
     }
 
-    public void setIdLibros(int idLibros) {
-        this.idLibros = idLibros;
+    public void setIdLibro(int idLibro) {
+        this.idLibro = idLibro;
     }
 
     public String getIsbnLibro() {
@@ -158,17 +148,17 @@ public class Libros implements Serializable {
         this.responsableLibro = responsableLibro;
     }
 
-    public List<Prestamos> getFkPrestamosLibroId() {
-        return fkPrestamosLibroId;
+    public List<Prestamo> getFkPrestamoLibroId() {
+        return fkPrestamoLibroId;
     }
 
-    public void setFkPrestamosLibroId(List<Prestamos> fkPrestamosLibroId) {
-        this.fkPrestamosLibroId = fkPrestamosLibroId;
+    public void setFkPrestamoLibroId(List<Prestamo> fkPrestamoLibroId) {
+        this.fkPrestamoLibroId = fkPrestamoLibroId;
     }
 
     @Override
     public String toString() {
-        return "Libros{" + "idLibros=" + idLibros + ", isbnLibro=" + isbnLibro + ", categoriaLibro=" + categoriaLibro + ", tituloLibro=" + tituloLibro + ", autorLibro=" + autorLibro + ", editorialLibro=" + editorialLibro + ", temaLibro=" + temaLibro + ", cantidadLibro=" + cantidadLibro + ", perchaLibro=" + perchaLibro + ", estadoLibro=" + estadoLibro + ", responsableLibro=" + responsableLibro + ", fkPrestamosLibroId=" + fkPrestamosLibroId + '}';
+        return "Libro{" + "idLibro=" + idLibro + ", isbnLibro=" + isbnLibro + ", categoriaLibro=" + categoriaLibro + ", tituloLibro=" + tituloLibro + ", autorLibro=" + autorLibro + ", editorialLibro=" + editorialLibro + ", temaLibro=" + temaLibro + ", cantidadLibro=" + cantidadLibro + ", perchaLibro=" + perchaLibro + ", estadoLibro=" + estadoLibro + ", responsableLibro=" + responsableLibro + ", fkPrestamoLibroId=" + fkPrestamoLibroId + '}';
     }
-
+    
 }

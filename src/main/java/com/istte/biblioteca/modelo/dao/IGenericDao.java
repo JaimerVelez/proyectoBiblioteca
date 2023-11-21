@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package com.istte.biblioteca.modelo.dao;
 
 import java.util.List;
 
-/**
- *
- * @author jaime
- */
-public interface IGenericaDao <T>{
+public interface IGenericDao<T> {
     public T create(T t);
 
     public T read(Object id);
@@ -32,5 +24,4 @@ public interface IGenericaDao <T>{
     public void flush();
 
     public List<T> findAll();
-    
 }
