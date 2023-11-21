@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Los libros mas perrones</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <p:panel id="basic" header="Libros" footer="Movie Details" style="margin-bottom:20px">
+        <h:panelGrid columns="2" cellpadding="10">
+         <p:graphicImage name="demo/images/misc/kobe.png" />
+        <div>Libros</div>
+        <p:outputLabel id="olidLibros" value="idLibros"> </p:outputLabel>
+        <p:inputText id="itidLibros" value="#{librocore}"></p:inputText>
+        
+        <p:outputLabel id="olisbnLibro" value="isbnLibro"> </p:outputLabel>
+        <p:inputText id="itisbnLibro" value="#{librocore}"></p:inputText>
+        
+        <p:outputLabel id="olcategoriaLibro" value="categoriaLibro"> </p:outputLabel>
+        <p:inputText id="itcategoriaLibro" value="#{librocore}"></p:inputText>
+        
+        <p:outputLabel id="olautorLibro" value="autorLibro"> </p:outputLabel>
+        <p:inputText id="itautorLibro" value="#{librocore}"></p:inputText>
+        
+        <p:outputLabel id="oleditorialLibro" value="editorialLibro"> </p:outputLabel>
+        <p:inputText  id="iteditorialLibro" value="#{librocore}" ></p:inputText>
+        
+        <p:outputLabel id="oltemaLibro" value="temaLibro"> </p:outputLabel>
+        <p:inputText id="ittemaLibro" value="#{librocore}"></p:inputText>
+        
+        <p:outputLabel id="olcantidadLibro" value="cantidadLibro"> </p:outputLabel>
+        <p:inputText id="itcantidadLibro" value="#{librocore}"></p:inputText>
+        
+        <p:outputLabel  id="olperchaLibro" value="perchaLibro"> </p:outputLabel>
+        <p:inputText id="itperchaLibro" value="#{librocore}"></p:inputText>
+        
+        <p:outputLabel id="olresponsableLibro" value="responsableLibro"> </p:outputLabel>
+        <p:inputText id="itresponsableLibro" value="#{librocore}"></p:inputText>
+        
+        <p:commandButton id="cbgrabar" value="Grabar"></p:commandButton>
+        <p:commandButton id="cbactulizar" value="actualizar"></p:commandButton>
+        <p:commandButton id="cblimpiar" value="limpiar"></p:commandButton> 
+        
+          </h:panelGrid>
+    </p:panel>
+ 
+    </h:body>
+    
+
+</html>
