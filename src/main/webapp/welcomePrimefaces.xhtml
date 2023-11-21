@@ -9,49 +9,61 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <meta charset="UTF-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <title>PrimeFaces</title>
+                               
             </f:facet>
+            <style>
+                .espacioSup {
+                margin-top: 40px;
+                }
+                .lateral1 {
+                margin-left: 10px;
+                }
+                .espacioSup2 {
+                margin-top: 80px;
+                }
+                .lateral{
+                    margin-left: 10px; 
+                    margin-top: 20px;
+                }
+                .centro {
+                width: 90%;
+                height: 750px;
+                }
+        </style>
         </h:head>
 
-        <h:body>
+        <h:body style="background-color:#d56f39">
 
-            <p:layout fullPage="true">
-
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Header prueba
-                </p:layoutUnit>
-
-                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Footer
-                </p:layoutUnit>
-
-                <p:layoutUnit position="west" size="175" header="Menu" collapsible="true">
+            <div class="espacioSup"></div>
+             <style>
+        body {
+            /* Establece la imagen como fondo y ajusta las propiedades según sea necesario */
+            background-image: url(https://img.freepik.com/vector-premium/dibujos-animados-estanterias-libros-biblioteca_273525-223.jpg?w=2000);
+            background-width: 100%;
+            background-height: 100%;/* Ajusta el tamaño de la imagen para cubrir toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+        }
+    </style>
+            <p:layout class="centro" >
+                <p:layoutUnit position="west" size="250" header="Menu" collapsible="true">
                     <p:menu>
                         <p:submenu label="Resources">
-                            <p:menuitem value="Ingreso estudiante" url="estudiante.xhtml" />
-                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
-                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
-                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+                            <p:menuitem value="Alquilados" url="estudiante.xhtml" />
+                            <p:menuitem value="Catalogo" url="libros.xhtml" />
+                            <p:menuitem value="realizar Préstamo" url="prestamo.xhtml" />
                         </p:submenu>
                     </p:menu>
+                    
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                    <ui:insert name="content"></ui:insert>
+                    <ui:insert name="content"/>
+                    <!-- la parte del medio -->
                 </p:layoutUnit>
-
-                <h:form>
-                    <p:dock position="bottom">
-                        <p:menuitem value="Home" icon="/resources/demo/images/dock/home.png"/>
-                        <p:menuitem value="Music" icon="/resources/demo/images/dock/music.png"/>
-                        <p:menuitem value="Video" icon="/resources/demo/images/dock/video.png"/>
-                        <p:menuitem value="Email" icon="/resources/demo/images/dock/email.png"/>
-                        <p:menuitem value="Portfolio" icon="/resources/demo/images/dock/portfolio.png"/>
-                        <p:menuitem value="Link" icon="/resources/demo/images/dock/link.png"/>
-                        <p:menuitem value="RSS" icon="/resources/demo/images/dock/rss.png"/>
-                        <p:menuitem value="History" icon="/resources/demo/images/dock/history.png"/>
-                    </p:dock>
-                </h:form>
             </p:layout>
         </h:body>
     </f:view>

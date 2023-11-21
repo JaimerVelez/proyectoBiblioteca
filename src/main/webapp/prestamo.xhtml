@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <ui:composition template="welcomePrimefaces.xhtml">
+            <ui:define name="windowsTitle">#{msgs.planetariumTitle}</ui:define>
+            <ui:define name="content">
+                <h:form id="frmPrestamo">
+                    <p:panel id="pIngreso" header="Ingreso de préstamos" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panelInput" style="margin-bottom:20px">
+                        <p:panelGrid columns="2">
+                            <p:outputLabel id="olIdPrestamo" value="Préstamo"></p:outputLabel>
+                            <p:inputText id="itIdPrestamo" value="#{prestamocore.idPrestamo}"></p:inputText>
+
+                            <p:outputLabel id="olFechaPrestamo" value="Fecha préstamo"></p:outputLabel>
+                            <p:inputText id="itFechaPrestamo" value="#{prestamocore.fechaPrestamo}"></p:inputText>
+
+                            <p:outputLabel id="olFechaDevolucionPrestamo" value="Fecha devolución"></p:outputLabel>
+                            <p:inputText id="itFechaDevolucionPrestamo" value="#{prestamocore.fechaDevolucionPrestamo}"></p:inputText>
+
+                            <p:outputLabel id="olEstudianteId" value="Código estudiante"></p:outputLabel>
+                            <p:inputText id="itEstudianteId" value="#{prestamocore.estudianteId}"></p:inputText>
+
+                            <p:outputLabel id="olLibroId" value="código libro"></p:outputLabel>
+                            <p:inputText id="itLibroId" value="#{prestamocore.libroId}"></p:inputText>
+                        </p:panelGrid>
+
+                        <p:commandButton id="cbGuardar" icon="fa fa-save" value="Guardar" action="#{prestamocore.insertarPrestamo()}"></p:commandButton>
+                        <p:commandButton id="cbActualizar" value="Actualizar"></p:commandButton>
+                        <p:commandButton id="cbLimpiar" value="Limpiar"></p:commandButton>
+
+                    </p:panel>
+                    <p:panel id="pDespliegue" header="ver información" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panelVerDatos" style="margin-bottom:20px">
+                        <p:dataTable id="dtPrestamo" value="#{prestamocore.listarPrestamo}"
+                                     var ="dtPrestamo" 
+                                     widgetVar="dtPrestamo">
+                            <p:column headerText="Código"> <p:outputLabel  id="ollistarPrestamoCodigo" value="#{dtPrestamo.idPrestamo}"></p:outputLabel> </p:column>
+                            <p:column headerText="Préstamo"> <p:outputLabel  id="ollistarPrestamo" value="#{dtPrestamo.fechaPrestamo}"></p:outputLabel> </p:column>
+                            <p:column headerText="Fecha devolución"><p:outputLabel  id="ollistarFechaDevolucion" value="#{dtPrestamo.fechaDevolucionPrestamo}"> </p:outputLabel></p:column>
+                            <p:column headerText="Código estudiante"> <p:outputLabel  id="ollistarCodigoEstudiante" value="#{dtPrestamo.estudianteId}"> </p:outputLabel></p:column>
+                            <p:column headerText="Código libro"> <p:outputLabel  id="ollistarCodigoLibro" value="#{dtPrestamo.libroId}"></p:outputLabel> </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -6,12 +6,17 @@
     </context-param>
     <context-param>
 	<param-name>primefaces.THEME</param-name>
-	<param-value>mint-choc</param-value>
+	<param-value>humanity</param-value>
     </context-param>
     <!-- utilizar íconos de fa -->
     <context-param>
         <param-name>primefaces.FONT_AWESOME</param-name>
         <param-value>true</param-value>
+    </context-param>
+    <!-- Usar modo produccion para evitar errores -->
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Production</param-value>
     </context-param>
     
     <servlet>
@@ -29,6 +34,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/estudiante.xhtml</welcome-file>
+        <welcome-file>faces/welcomePrimefaces.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>

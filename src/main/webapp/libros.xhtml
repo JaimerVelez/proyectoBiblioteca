@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">   
+
+    <h:head>
+        <title>Los libros mas perrones</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+       <ui:composition template="welcomePrimefaces.xhtml"> 
+            <ui:define name="windowsTitle">#{msgs.planetariumTitle}</ui:define>
+                <ui:define name="content">
+                    <h:form id="frmLibro">
+                        <p:panel id="pIngreso" header="Ingreso de libro" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panelInput" style="margin-bottom:20px">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel id="olIdLibros" value="Código"> </p:outputLabel>
+                                <p:inputText id="itIdLibros" value="#{librocore.idLibro}"></p:inputText>
+
+                                <p:outputLabel id="olIsbnLibro" value="ISBN"> </p:outputLabel>
+                                <p:inputText id="itIsbnLibro" value="#{librocore.isbnLibro}"></p:inputText>
+
+                                <p:outputLabel id="olCategoriaLibro" value="Categoría"> </p:outputLabel>
+                                <p:inputText id="itCategoriaLibro" value="#{librocore.categoriaLibro}"></p:inputText>
+
+                                <p:outputLabel id="olAutorLibro" value="Autor"> </p:outputLabel>
+                                <p:inputText id="itAutorLibro" value="#{librocore.autorLibro}"></p:inputText>
+
+                                <p:outputLabel id="olEditorialLibro" value="Editorial"> </p:outputLabel>
+                                <p:inputText  id="itEditorialLibro" value="#{librocore.editorialLibro}" ></p:inputText>
+
+                                <p:outputLabel id="olTemaLibro" value="Tema"> </p:outputLabel>
+                                <p:inputText id="itTemaLibro" value="#{librocore.temaLibro}"></p:inputText>
+
+                                <p:outputLabel id="olCantidadLibro" value="Cantidad"> </p:outputLabel>
+                                <p:inputText id="itCantidadLibro" value="#{librocore.cantidadLibro}"></p:inputText>
+
+                                <p:outputLabel  id="olPerchaLibro" value="Percha"> </p:outputLabel>
+                                <p:inputText id="itPerchaLibro" value="#{librocore.perchaLibro}"></p:inputText>
+
+                                <p:outputLabel id="olResponsableLibro" value="Responsable"> </p:outputLabel>
+                                <p:inputText id="itResponsableLibro" value="#{librocore.responsableLibro}"></p:inputText>
+                            </p:panelGrid>
+                            
+                            <p:commandButton id="cbGuardar" icon="fa fa-save" value="Guardar" action="#{librocore.insertarLibros()}" update="frmLibro"></p:commandButton>
+                            <p:commandButton id="cbActualizar" value="Actualizar"></p:commandButton>
+                            <p:commandButton id="cbLimpiar" value="Limpiar"></p:commandButton>
+
+                        </p:panel>
+                        
+                        <p:panel id="pDespliegue" header="ver información" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panelVerDatos" style="margin-bottom:20px">
+                            <p:dataTable id="dtLibro" value="#{librocore.listarLibro}"
+                                     var ="dtLibro" 
+                                     widgetVar="dtLibro">
+                                <p:column headerText="IdLibros"> <p:outputLabel  id="olListarIdLibro" value="#{dtLibro.idLibro}"></p:outputLabel> </p:column>
+                                <p:column headerText="IsbnLibro"> <p:outputLabel  id="olListarIsbnLibro" value="#{dtLibro.isbnLibro}"></p:outputLabel> </p:column>
+                                <p:column headerText="categoriaLibro"> <p:outputLabel  id="olListarCategoriaLibro" value="#{dtLibro.categoriaLibro}"></p:outputLabel> </p:column>
+                                <p:column headerText="autorLibro"> <p:outputLabel  id="olListarAutorLibro" value="#{dtLibro.autorLibro}"></p:outputLabel> </p:column>
+                                <p:column headerText="editorialLibro"> <p:outputLabel  id="olListarEditorialLibro" value="#{dtLibro.editorialLibro}"></p:outputLabel> </p:column>
+                                <p:column headerText="temaLibro"> <p:outputLabel  id="olListarTemaLibro" value="#{dtLibro.temaLibro}"></p:outputLabel> </p:column>
+                                <p:column headerText="cantidadLibro"> <p:outputLabel  id="olListarCantidadLibro" value="#{dtLibro.cantidadLibro}"></p:outputLabel> </p:column>
+                                <p:column headerText="perchaLibro"> <p:outputLabel  id="olListarPerchaLibro" value="#{dtLibro.perchaLibro}"></p:outputLabel> </p:column>
+                                <p:column headerText="responsableLibro"> <p:outputLabel  id="olListarResponsableLibrbo" value="#{dtLibro.responsableLibro}"></p:outputLabel> </p:column>
+                            </p:dataTable>
+                        </p:panel>
+                    </h:form>
+                </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
